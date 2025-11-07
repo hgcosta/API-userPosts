@@ -15,10 +15,10 @@ import java.util.List;
 public class UserResources {
     @RequestMapping(method= RequestMethod.GET)
     public ResponseEntity <List<User>> findAll(){
-        User maria = new User("1", "Maria", "maria@gmail.com");
+        User hugo = new User("13", "HUGO", "maria@gmail.com");
         User alex = new User("2", "Alex", "alex@gmail.com");
         List<User> list = new ArrayList<>();
-        list.addAll(Arrays.asList(maria, alex));
+        list.addAll(Arrays.asList(hugo, alex));
         return ResponseEntity.ok().body(list);
     }
 }
