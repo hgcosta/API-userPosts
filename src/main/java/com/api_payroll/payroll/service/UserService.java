@@ -1,6 +1,7 @@
 package com.api_payroll.payroll.service;
 
 import com.api_payroll.payroll.domain.User;
+import com.api_payroll.payroll.dto.UserDTO;
 import com.api_payroll.payroll.repository.UserRepository;
 import com.api_payroll.payroll.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,12 @@ public class UserService {
     public User findByID(String id){
         return repo.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+    public User insertUser(User obj){
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO){
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
     }
 }
